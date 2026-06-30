@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirthana Cheruku — Business Analyst & Project Coordinator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ink:#2B1B2E;
+    --slate:#5A4A5C;
+    --terracotta:#E84393;
+    --gold:#FF8FB3;
+    --line:rgba(232,67,147,0.16);
+    --paper-dim:#FFF0F6;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--slate);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--terracotta); color:var(--paper);}
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    color:var(--ink);
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  /* ---------- Beat line: signature motif ---------- */
+  .beatline{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    height:18px;
+  }
+  .beatline span{
+    width:3px;
+    background:var(--terracotta);
+    border-radius:2px;
+    animation:beat 1.6s ease-in-out infinite;
+  }
+  .beatline span:nth-child(1){height:6px; animation-delay:0s;}
+  .beatline span:nth-child(2){height:14px; animation-delay:0.15s;}
+  .beatline span:nth-child(3){height:9px; animation-delay:0.3s;}
+  .beatline span:nth-child(4){height:17px; animation-delay:0.45s;}
+  .beatline span:nth-child(5){height:7px; animation-delay:0.6s;}
+  @keyframes beat{
+    0%,100%{transform:scaleY(0.55); opacity:0.55;}
+    50%{transform:scaleY(1); opacity:1;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .beatline span{animation:none; opacity:0.85;}
+  }
+
+  .divider{
+    width:100%;
+    height:1px;
+    background:var(--line);
+    margin:0;
+  }
+
+  nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    padding:22px 6vw;
+    background:rgba(250,246,240,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--ink);
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+  nav a{
+    color:var(--slate);
+    text-decoration:none;
+    font-size:0.82rem;
+    font-weight:500;
+    letter-spacing:0.02em;
+    position:relative;
+    white-space:nowrap;
+  }
+  nav a::after{
+    content:'';
+    position:absolute;
+    bottom:-4px; left:0;
+    width:0%; height:2px;
+    background:var(--terracotta);
+    transition:width 0.25s ease;
+  }
+  nav a:hover::after{width:100%;}
+
+  @media (max-width:780px){
+    nav{flex-direction:column; align-items:flex-start; gap:14px; padding:18px 6vw;}
+    nav ul{width:100%; justify-content:flex-start; gap:18px;}
+  }
+
+  section{
+    padding:140px 6vw 100px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:auto;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    align-items:center;
+    gap:40px;
+    padding-top:140px;
+    padding-bottom:60px;
+  }
+  .hero-photo-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .hero-photo{
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    border:2px solid var(--terracotta);
+    box-shadow:0 0 50px rgba(232,67,147,0.35), 0 0 100px rgba(232,67,147,0.15);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(160deg, #FFE3EE, #FFFFFF);
+  }
+  .hero-photo span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    color:var(--terracotta);
+    text-align:center;
+    padding:20px;
+  }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr; padding-top:120px;}
+    .hero-photo{width:220px; height:220px;}
+    .hero-photo-wrap{order:-1;}
+  }
+
+  .expertise-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+    margin-top:60px;
+  }
+  .expertise-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:24px 20px;
+    background:var(--paper-dim);
+  }
+  .expertise-card .glyph{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--terracotta);
+    font-size:1.3rem;
+    margin-bottom:12px;
+    display:block;
+  }
+  .expertise-card h4{
+    font-family:'Inter', sans-serif;
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .expertise-card p{
+    font-size:0.8rem;
+    color:var(--slate);
+  }
+  @media (max-width:760px){
+    .expertise-row{grid-template-columns:1fr;}
+  }
+  .hero .eyebrow{margin-bottom:26px;}
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.04;
+    max-width:880px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--terracotta);
+  }
+  .hero p.lede{
+    margin-top:28px;
+    font-size:1.15rem;
+    max-width:560px;
+    color:var(--slate);
+  }
+  .hero .tags{
+    margin-top:40px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.74rem;
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:100px;
+    color:var(--ink);
+    background:rgba(255,255,255,0.5);
+  }
+
+  /* ---------- Section headers ---------- */
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.4vw, 2.5rem);
+  }
+  .section-num{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--terracotta);
+    font-size:0.85rem;
+  }
+
+  /* ---------- Work / Case studies ---------- */
+  .case{
+    border-top:1px solid var(--line);
+    padding:46px 0;
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:40px;
+  }
+  .case:last-child{border-bottom:1px solid var(--line);}
+  .case-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--terracotta);
+    line-height:1.9;
+  }
+  .case-meta .role{
+    color:var(--ink);
+    font-weight:500;
+    margin-bottom:4px;
+    display:block;
+  }
+  .case h3{
+    font-size:1.5rem;
+    margin-bottom:14px;
+  }
+  .case p{
+    max-width:640px;
+    margin-bottom:14px;
+    color:var(--slate);
+  }
+  .case .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+  }
+  .chip{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    background:var(--paper-dim);
+    padding:5px 11px;
+    border-radius:5px;
+    color:var(--ink);
+  }
+  .note{
+    margin-top:16px;
+    padding:14px 16px;
+    border-left:2px solid var(--gold);
+    background:rgba(201,162,39,0.07);
+    font-size:0.88rem;
+    color:var(--ink);
+  }
+
+  @media (max-width:720px){
+    .case{grid-template-columns:1fr; gap:14px;}
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .skill-card{
+    background:var(--paper);
+    padding:32px 26px;
+  }
+  .skill-card .icon-line{
+    width:30px; height:2px;
+    background:var(--terracotta);
+    margin-bottom:18px;
+  }
+  .skill-card h4{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    color:var(--ink);
+    margin-bottom:10px;
+    font-weight:600;
+  }
+  .skill-card p{
+    font-size:0.88rem;
+    color:var(--slate);
+  }
+  @media (max-width:760px){
+    .skills-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- About / Interests (the rhythm section) ---------- */
+  .rhythm{
+    background:#2B1B2E;
+    color:var(--paper);
+    padding:120px 6vw;
+  }
+  .rhythm .section-head h2{color:var(--paper);}
+  .rhythm-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:60px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .rhythm p{
+    color:rgba(250,246,240,0.82);
+    font-size:1.02rem;
+    margin-bottom:18px;
+    max-width:520px;
+  }
+  .lang-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:22px;
+  }
+  .lang-pill{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    border:1px solid rgba(250,246,240,0.25);
+    padding:8px 16px;
+    border-radius:100px;
+  }
+  .dance-card{
+    border:1px solid rgba(250,246,240,0.18);
+    padding:34px;
+    border-radius:4px;
+    background:rgba(250,246,240,0.04);
+  }
+  .dance-card .beatline span{background:var(--gold);}
+  .dance-card h3{
+    color:var(--paper);
+    font-size:1.3rem;
+    margin:18px 0 12px;
+  }
+  .dance-card p{
+    color:rgba(250,246,240,0.75);
+    font-size:0.92rem;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    text-align:left;
+    padding-bottom:140px;
+  }
+  .contact h2{
+    font-size:clamp(2rem, 5vw, 3.2rem);
+    max-width:680px;
+    margin-bottom:30px;
+  }
+  .contact-grid{
+    display:flex;
+    gap:50px;
+    flex-wrap:wrap;
+    margin-top:40px;
+  }
+  .contact-item .eyebrow{margin-bottom:8px;}
+  .contact-item a, .contact-item span{
+    color:var(--ink);
+    font-size:1.05rem;
+    font-weight:500;
+    text-decoration:none;
+    border-bottom:1px solid var(--terracotta);
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 6vw;
+    display:flex;
+    justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--slate);
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--terracotta);
+    outline-offset:3px;
+  }
+
+  /* ---------- Page system ---------- */
+  .page{
+    display:none;
+    animation:fadeIn 0.45s ease;
+  }
+  .page.active{display:block;}
+  @keyframes fadeIn{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .page{animation:none;}
+  }
+  nav a.active::after{width:100%;}
+  .page-foot-nav{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 6vw 100px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .next-btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.82rem;
+    color:var(--ink);
+    background:none;
+    border:1px solid var(--line);
+    padding:12px 22px;
+    border-radius:100px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .availability-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+    padding:6px 14px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    background:var(--paper-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink);
+    letter-spacing:0.02em;
+  }
+  .availability-badge .dot{
+    width:7px; height:7px;
+    border-radius:50%;
+    background:#2ecc71;
+    box-shadow:0 0 0 3px rgba(46,204,113,0.18);
+    flex-shrink:0;
+  }
+
+  /* ---------- Certifications ---------- */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:18px;
+  }
+  .cert-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 20px;
+    background:var(--paper-dim);
+  }
+  .cert-card .glyph{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--terracotta);
+    font-size:1.1rem;
+    margin-bottom:10px;
+    display:block;
+  }
+  .cert-card h4{
+    font-family:'Inter', sans-serif;
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+  .cert-card .cert-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--terracotta);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Kirthana Cheruku</div>
+  <ul>
+    <li><a href="#" data-page="home" class="active">Home</a></li>
+    <li><a href="#" data-page="work">Work</a></li>
+    <li><a href="#" data-page="internship">Internship</a></li>
+    <li><a href="#" data-page="skills">Skills</a></li>
+    <li><a href="#" data-page="certs">Certifications</a></li>
+    <li><a href="#" data-page="about">About</a></li>
+    <li><a href="#" data-page="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO / HOME ============ -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">
+        <div class="beatline"><span></span><span></span><span></span><span></span><span></span></div>
+        Business Analyst · Project Coordinator
+      </div>
+      <div class="availability-badge"><span class="dot"></span>Available for Business Analyst / Project Coordinator roles</div>
+      <h1>I keep projects <em>on tempo</em> —<br>tracked, communicated, documented.</h1>
+      <p class="lede">BSc Computer Science graduate (2026) who treats coordination the way a dancer treats rhythm: every task has its beat, every stakeholder needs to stay in sync, and nothing lands well if the timing is off.</p>
+      <div class="tags">
+        <span class="tag">Task Tracking</span>
+        <span class="tag">Stakeholder Communication</span>
+        <span class="tag">Documentation</span>
+        <span class="tag">4 Languages</span>
+        <span class="tag">Agile Project Management — Certified</span>
+      </div>
+      <div style="margin-top:40px;">
+        <button class="next-btn" data-goto="work">See my work →</button>
+      </div>
+    </div>
+    <div class="hero-photo">
+  <img src="profile.jpg.jpeg" style="width:100%; height:100%; object-fit:cover; object-position: top center;">
+
+</div>
+  </div>
+
+  <div class="expertise-row">
+    <div class="expertise-card">
+      <span class="glyph">◆</span>
+      <h4>Requirements & Coordination</h4>
+      <p>Gathering requirements, tracking tasks, and keeping stakeholders aligned across a project's lifecycle.</p>
+    </div>
+    <div class="expertise-card">
+      <span class="glyph">◆</span>
+      <h4>Full-Stack Web Exposure</h4>
+      <p>Hands-on familiarity with how full-stack web projects are built, gained through an internship — via requirement gathering and client interaction, not coding.</p>
+    </div>
+    <div class="expertise-card">
+      <span class="glyph">◆</span>
+      <h4>Multilingual Communication</h4>
+      <p>Fluent in Telugu, Tamil, Hindi, and English — a real advantage for cross-team and client-facing coordination.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="page" id="page-work">
+  <div class="section-head">
+    <h2>Selected Work</h2>
+    <span class="section-num">02 — Case Studies</span>
+  </div>
+
+  <div class="case">
+    <div class="case-meta">
+      <span class="role">CIAZ Photography</span>
+      Wedding Quote Builder<br>
+      Client Project
+    </div>
+    <div>
+      <h3>Coordinating a multi-round product build for a live business</h3>
+      <p>A wedding photography business needed a web-based quote builder — a multi-step tool with live pricing and WhatsApp integration so clients could get instant estimates. I worked directly with the business owner to gather requirements, test each build, and feed back what needed to change.</p>
+      <p>Across several iteration rounds I coordinated fixes for calculation errors, a luxury UI/UX redesign, an iOS Safari compatibility issue, and a reordering of the step flow based on how real clients were using it — translating business feedback into clear, actionable change requests each time.</p>
+      <div class="note">My role was requirements gathering, testing, and iteration coordination — not the underlying code. In interviews I speak to the process: how I structured feedback, prioritized fixes, and kept the build aligned with what the client actually needed.</div>
+      <div class="stack">
+        <span class="chip">Requirements Gathering</span>
+        <span class="chip">UAT / Feedback Loops</span>
+        <span class="chip">Change Tracking</span>
+        <span class="chip">Stakeholder Communication</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-meta">
+      <span class="role">Academic Project</span>
+      Health Reminder Web App<br>
+      Python / Django
+    </div>
+    <div>
+      <h3>From a documented business need to a working build</h3>
+      <p>Built as part of my Computer Science coursework, this app reminds users to take medication and track basic health routines. I'm using it as the basis for a Business Requirements Document — scoping the problem, defining user needs, and mapping features back to those needs — as a portfolio artifact that mirrors how BA work actually starts.</p>
+      <div class="stack">
+        <span class="chip">Python / Django</span>
+        <span class="chip">Requirements Documentation</span>
+        <span class="chip">BRD (in progress)</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot-nav" style="padding-left:0; padding-right:0;">
+    <button class="next-btn" data-goto="home">← Home</button>
+    <button class="next-btn" data-goto="internship">Internship →</button>
+  </div>
+</section>
+
+<!-- ============ INTERNSHIP ============ -->
+<section class="page" id="page-internship">
+  <div class="section-head">
+    <h2>Internship</h2>
+    <span class="section-num">03 — Industry Exposure</span>
+  </div>
+
+  <div class="case">
+    <div class="case-meta">
+      <span class="role">Inspire Softtech Solutions</span>
+      Full-Stack Web Development<br>
+      Internship
+    </div>
+    <div>
+      <h3>Learning how a full-stack web project comes together — from the coordination side</h3>
+      <p>During my internship, I was placed on a full-stack web development team and got close exposure to how a real project moves from idea to build — frontend, backend, and database pieces all fitting together, and how a development team plans and sequences that work.</p>
+      <p>My contribution was on the interaction and coordination side: sitting in on requirement discussions, helping clarify what was being asked for, and following how tasks were broken down and tracked across the team. I didn't write the code myself, but I came away understanding the full development process well enough to coordinate around it confidently.</p>
+      <div class="note">I'm upfront about this in interviews: my internship gave me strong exposure to full-stack development — how the pieces fit, how teams plan and communicate — through requirement gathering and observation, not hands-on coding. That's exactly the kind of perspective a coordination role needs.</div>
+      <div class="stack">
+        <span class="chip">Full-Stack Process Exposure</span>
+        <span class="chip">Requirement Discussions</span>
+        <span class="chip">Task Breakdown & Tracking</span>
+        <span class="chip">Team Communication</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot-nav" style="padding-left:0; padding-right:0;">
+    <button class="next-btn" data-goto="work">← Work</button>
+    <button class="next-btn" data-goto="skills">Skills →</button>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="page" id="page-skills">
+  <div class="section-head">
+    <h2>Core Skills</h2>
+    <span class="section-num">03 — What I Bring</span>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="icon-line"></div>
+      <h4>Task Tracking & Status Reporting</h4>
+      <p>Keeping work visible — what's done, what's pending, what's blocked — so nothing falls through the cracks and stakeholders always know where things stand.</p>
+    </div>
+    <div class="skill-card">
+      <div class="icon-line"></div>
+      <h4>Stakeholder Communication</h4>
+      <p>Translating between technical and non-technical sides of a project, gathering feedback clearly, and making sure requests turn into accurate requirements.</p>
+    </div>
+    <div class="skill-card">
+      <div class="icon-line"></div>
+      <h4>Documentation</h4>
+      <p>Writing requirements, change logs, and process notes that are clear enough for anyone on the team to pick up and act on.</p>
+    </div>
+  </div>
+  <div class="page-foot-nav" style="padding-left:0; padding-right:0;">
+    <button class="next-btn" data-goto="internship">← Internship</button>
+    <button class="next-btn" data-goto="certs">Certifications →</button>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section class="page" id="page-certs">
+  <div class="section-head">
+    <h2>Certifications</h2>
+    <span class="section-num">04 — Verified Learning</span>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <span class="glyph">◆</span>
+      <h4>Agile Project Management</h4>
+      <div class="cert-meta">HP LIFE · Issued June 2026</div>
+    </div>
+  </div>
+  <div class="page-foot-nav" style="padding-left:0; padding-right:0;">
+    <button class="next-btn" data-goto="skills">← Skills</button>
+    <button class="next-btn" data-goto="about">About →</button>
+  </div>
+</section>
+
+<!-- ============ ABOUT / RHYTHM ============ -->
+<section class="page rhythm" id="page-about" style="padding:140px 6vw 100px;">
+  <div class="section-head">
+    <h2>Beyond the Resume</h2>
+    <span class="section-num" style="color:var(--gold);">05 — About</span>
+  </div>
+  <div class="rhythm-grid">
+    <div>
+      <p>I grew up speaking four languages, and switching between them comes as naturally as switching between a client's priorities and a developer's constraints — it's the same skill, really: listening closely enough to translate accurately.</p>
+      <p>I was Cultural Captain in my Student Council, which meant the same thing then as project coordination means now — getting different people moving toward the same deadline without losing the details.</p>
+      <div class="lang-row">
+        <span class="lang-pill">Telugu</span>
+        <span class="lang-pill">Tamil</span>
+        <span class="lang-pill">Hindi</span>
+        <span class="lang-pill">English</span>
+      </div>
+    </div>
+    <div class="dance-card">
+      <div class="beatline"><span></span><span></span><span></span><span></span><span></span></div>
+      <h3>Dance</h3>
+      <p>Dance taught me discipline before any job did — counting beats, holding formation, recovering instantly when something goes off-script. It's the same instinct I bring to coordinating a project: stay aware of the whole room, not just your own part, and keep everything landing on time.</p>
+    </div>
+  </div>
+  <div class="page-foot-nav" style="padding-left:0; padding-right:0; max-width:1100px; margin-top:70px;">
+    <button class="next-btn" data-goto="skills" style="border-color:rgba(250,246,240,0.25); color:var(--paper);">← Skills</button>
+    <button class="next-btn" data-goto="contact" style="border-color:rgba(250,246,240,0.25); color:var(--paper);">Contact →</button>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="page contact" id="page-contact">
+  <div class="section-head">
+    <span class="section-num">06 — Get In Touch</span>
+  </div>
+  <h2>Looking for a coordinator who keeps things in sync? Let's talk.</h2>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="eyebrow">Email</div>
+      <a href="mailto:kirthanacheruku@gmail.com">kirthanacheruku@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="eyebrow">LinkedIn</div>
+      <a href="https://www.linkedin.com/in/kirthana-cheruku-07416535b" target="_blank" rel="noopener">View my LinkedIn</a>
+    </div>
+    <div class="contact-item">
+      <div class="eyebrow">GitHub</div>
+      <a href="https://github.com/kirthanacheruku-creator" target="_blank" rel="noopener">View my GitHub</a>
+    </div>
+    <div class="contact-item">
+      <div class="eyebrow">Phone</div>
+      <span>+91 8247280216 </span>
+    </div>
+    <div class="contact-item">
+      <div class="eyebrow">Location</div>
+      <span>Chennai, India</span>
+    </div>
+  </div>
+  <div class="page-foot-nav" style="padding-left:0; padding-right:0; margin-top:60px;">
+    <button class="next-btn" data-goto="home">← Back to Home</button>
+  </div>
+</section>
+
+<footer>
+  <span>Kirthana Cheruku — Portfolio</span>
+  <span>Guru Nanak College · BSc Computer Science, 2026</span>
+</footer>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('nav a');
+
+  function goTo(pageId){
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    navLinks.forEach(l => l.classList.remove('active'));
+    const matchingLink = document.querySelector('nav a[data-page="' + pageId + '"]');
+    if(matchingLink) matchingLink.classList.add('active');
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      goTo(link.getAttribute('data-page'));
+    });
+  });
+
+  document.querySelectorAll('[data-goto]').forEach(btn => {
+    btn.addEventListener('click', () => goTo(btn.getAttribute('data-goto')));
+  });
+</script>
+
+</body>
+</html>
