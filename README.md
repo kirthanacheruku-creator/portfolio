@@ -10,7 +10,7 @@ This is my personal portfolio website showcasing my skills, projects, and contac
 - JavaScript
 
 ## Live Website
-(Add your GitHub Pages link here after publishing)
+(github pages deployment in progress)
 
 ## Features
 - Responsive design
